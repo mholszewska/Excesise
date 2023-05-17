@@ -1,0 +1,30 @@
+string firstVers = "{0} bottle{1} of beer on the wall, {0} bottle{1} of beer.";
+string secondVers = "Take one down and pass it around, {0} bottle{1} of beer on the wall.\n";
+const string lastVers = "Go to the store and buy some more, 99 bottles of beer on the wall.";
+string s = "s";
+string noMore = "no more";
+
+for (int i = 99; i >= 0; i--)
+{
+    switch (i)
+	{
+		case 0:
+            string vers = string.Format(firstVers, noMore, s);
+            vers = string.Concat(char.ToUpper(vers[0]), vers.Substring(1));
+            Console.WriteLine(vers);
+            Console.WriteLine(lastVers);
+			break;
+		case 1:
+            Console.WriteLine(firstVers, i, "");
+            Console.WriteLine(secondVers, noMore, s);
+            break;
+        case 2:
+            Console.WriteLine(firstVers, i, s);
+            Console.WriteLine(secondVers, i - 1, "");
+            break;
+        default:
+            Console.WriteLine(firstVers, i, s);
+            Console.WriteLine(secondVers, i - 1, s);
+            break;
+	}
+}
